@@ -1,0 +1,374 @@
+{
+  "generated_at": "2026-10-19T15:17:35.238661Z",
+  "endpoint": "https://api.lexmount.cn/v1/dom/dump",
+  "repos": 6,
+  "success": 6,
+  "results": [
+    {
+      "id": "playwright-python",
+      "name": "Playwright Python",
+      "feed": "https://github.com/microsoft/playwright-python/releases.atom",
+      "ok": true,
+      "status": "ok",
+      "parse_error": "",
+      "final_url": "https://github.com/microsoft/playwright-python/releases.atom",
+      "target_status_code": 200,
+      "engine": "http",
+      "request_id": "ebdd1110-b009-451a-9583-9591d4b52579",
+      "dom_id": "846861",
+      "releases": [
+        {
+          "version": "v1.64.0",
+          "title": "v1.64.0",
+          "updated": "2026-10-13T23:32:18Z",
+          "link": "https://github.com/microsoft/playwright-python/releases/tag/v1.64.0",
+          "highlights": "🧰 WebMCP New page.webmcp and frame.webmcp give access to the tools that a page registers through the experimental WebMCP browser API, so you can test them like any other part of your app: browser = chromium . launch ( args = [ \"--enable-features=WebMCP\" ]) page = browser . new_page () page . goto ( \"https://example.com\" ) for tool in page . webmcp . tools (): print ( tool [ \"name\" ], tool [ \"description\" ]) result = page . webmcp . call_tool ( \"add\" , { \"a\" : 2 , \"b\" : 40 }) print ( result [ \"content\" ][ 0 ][ \"text\" ]) # \"42\" Playwright MCP also supports WebMCP by default, with page-defined tools offered to the agent as webmcp_<tool> . Pass --no-webmcp to opt out. playwright-cli exposes them as well: playwright-cli webmcp-list playwright-cli webmcp-call search_catalog --params ' {\"query\":\"cats\"} ' 🎬 Better videos Videos can now be recorded at a custom frame rate, and the decorations for actions are styled with plain CSS: page . screencast . start ( path = \"video.webm\" , size = { \"width\" : 1920 , \"height\" : 1080 }, fps = 60 ) page . screencast . show_actions ( style = { \"point\" : \"width: 20px; height: 20px; border-radius: 50%; background: red\" , \"highlight\" : \"outline: 2px solid #3…"
+        },
+        {
+          "version": "v1.63.0",
+          "title": "v1.63.0",
+          "updated": "2026-09-15T19:21:56Z",
+          "link": "https://github.com/microsoft/playwright-python/releases/tag/v1.63.0",
+          "highlights": "🪟 Locate across frames page.frame_locator() and frame.frame_locator() called without a selector search in any frame of the subtree, so you no longer need to locate the iframe first: # Finds the button in any frame on the page. page . frame_locator (). get_by_role ( \"button\" ). click () The rest of the locator resolves inside a single frame, just like a regular locator, and an error is thrown when it matches elements in several frames. 👁️ Visible-only locators New locator.visible returns a locator that matches only visible elements. It is the recommended replacement for the :visible CSS pseudo-class: page . locator ( \"button\" ). visible . click () 🖼️ Aria and screen snapshots in traces New aria_snapshots and screen_snapshots options of tracing.start() capture an aria snapshot and a screenshot of the page on every action: context . tracing . start ( snapshots = True , aria_snapshots = True , screen_snapshots = True ) With aria and screen snapshots recorded, the new Display Aria mode in the trace viewer shows the action screenshot side by side with the aria snapshot, and hovering an aria node highlights it on the screenshot. New APIs Browser and Context http_credentials now also acce…"
+        },
+        {
+          "version": "v1.62.0",
+          "title": "v1.62.0",
+          "updated": "2026-07-31T16:32:36Z",
+          "link": "https://github.com/microsoft/playwright-python/releases/tag/v1.62.0",
+          "highlights": "🖼️ WebP screenshots page.screenshot() and locator.screenshot() can now capture screenshots in the WebP format. Playwright infers the format from a .webp file extension, or you can set the type explicitly. Quality 100 (the default) is lossless, while lower values use lossy compression: page . screenshot ( path = \"homepage.webp\" , quality = 50 ) New APIs New scroll option ( \"auto\" | \"none\" ) on actions to opt out of Playwright's automatic scrolling into view. New locator.wait_for_function() waits until a function called with the matching element returns a truthy value. New apiResponse.timing() returns resource timing information for an API response. Announcements 📋 The clipboard is now isolated from the operating system in headless mode, so tests that use navigator.clipboard no longer read or overwrite the clipboard of the machine running them. ⚠️ Debian 11 is not supported anymore. Browser Versions Chromium 151.0.7922.34 Mozilla Firefox 153.0 WebKit 26.5 This version was also tested against the following stable channels: Google Chrome 151 Microsoft Edge 151"
+        },
+        {
+          "version": "v1.61.0",
+          "title": "v1.61.0",
+          "updated": "2026-06-29T09:50:08Z",
+          "link": "https://github.com/microsoft/playwright-python/releases/tag/v1.61.0",
+          "highlights": "🔑 WebAuthn passkeys New Credentials virtual authenticator, available via browserContext.credentials , lets tests register passkeys and answer navigator.credentials.create() / navigator.credentials.get() ceremonies in the page — no real hardware key required, works in all browsers: context = browser . new_context () # Seed a passkey your backend provisioned for a test user. context . credentials . create ( \"example.com\" , id = credential_id , user_handle = user_handle , private_key = private_key , public_key = public_key , ) context . credentials . install () page = context . new_page () page . goto ( \"https://example.com/login\" ) # The page's navigator.credentials.get() is answered with the seeded passkey. You can also let the app register a passkey once in a setup test, read it back with credentials.get() , and seed it into later tests — see Credentials for details. 🗃️ Web Storage New WebStorage API, available via page.localStorage and page.sessionStorage , reads and writes the page's storage for the current origin: page . local_storage . set_item ( \"token\" , \"abc\" ) token = page . local_storage . get_item ( \"token\" ) items = page . session_storage . items () New APIs apiResponse…"
+        },
+        {
+          "version": "v1.60.0",
+          "title": "v1.60.0",
+          "updated": "2026-05-18T11:25:27Z",
+          "link": "https://github.com/microsoft/playwright-python/releases/tag/v1.60.0",
+          "highlights": "🐍 Python improvements New FormData class for building multipart/form-data request bodies — pass to api_request_context.post(form=…) etc. expect.soft(...) soft assertions collect multiple failures in a test instead of stopping at the first one. Requires up-to-date pytest integration to work. All timeout parameters now accept datetime.timedelta — applies wherever a timeout is taken, e.g. page.goto() , locator.click() , expect(...).to_be_visible() . Async context manager support across more APIs — async with now works for objects returned from screencast.show_actions() , screencast.show_overlays() , etc. page.expect_request(...) and page.expect_response(...) now accept async predicates. Typed overloads for expect_event / wait_for_event so the event payload type is inferred per event name. 🌐 HAR recording on Tracing tracing.start_har() / tracing.stop_har() expose HAR recording as a first-class tracing API, with the same content , mode and url_filter options as record_har : context . tracing . start_har ( \"trace.har\" ) page = context . new_page () page . goto ( \"https://playwright.dev\" ) context . tracing . stop_har () 🪝 Drop API New locator.drop() simulates an external drag-and-drop o…"
+        }
+      ],
+      "raw_relative": "raw/playwright-python.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:35.239657Z",
+          "finished_at": "2026-10-19T15:17:40.635112Z",
+          "http_status": 200,
+          "request_id": "ebdd1110-b009-451a-9583-9591d4b52579"
+        }
+      ],
+      "generated_at": "2026-10-19T15:17:35.238661Z"
+    },
+    {
+      "id": "browser-use",
+      "name": "Browser Use",
+      "feed": "https://github.com/browser-use/browser-use/releases.atom",
+      "ok": true,
+      "status": "ok",
+      "parse_error": "",
+      "final_url": "https://github.com/browser-use/browser-use/releases.atom",
+      "target_status_code": 200,
+      "engine": "http",
+      "request_id": "98582cea-219f-4558-8dd6-ce5c67b1c2d3",
+      "dom_id": "846862",
+      "releases": [
+        {
+          "version": "0.13.13",
+          "title": "0.13.13: OpenAI browser tools and Cloud fixes",
+          "updated": "2026-10-15T23:50:45Z",
+          "link": "https://github.com/browser-use/browser-use/releases/tag/0.13.13",
+          "highlights": "This release includes the OpenAI browser-tool driver and fixes two integration issues. Handle temporary empty Cloud tab URLs during navigation. Keep screenshots, crops, and pointer coordinates aligned on scaled displays. Provide 18 default browser tools and six optional actions through Browser Use Actor. Support local browsers, Browser Use Cloud, and borrowed browser sessions. Install the openai-tools extra with OpenAI Python 3.31+. OpenAI 3.x uses httpx2; use its DefaultAsyncHttpxClient for custom HTTP clients. Validation: all eleven driver tests pass. Both new regression tests fail on the earlier implementation. Pre-commit, type checks, package builds, and GitHub tests pass. Live remote-browser and library smoke tests passed; broader evaluation results remain separate. This release supersedes 0.13.12, whose PyPI publication was cancelled before approval. Guide: https://docs.browser-use.com/open-source/customize/integrations/openai Driver: #6086 Fixes: #6089"
+        },
+        {
+          "version": "0.13.12",
+          "title": "0.13.12: OpenAI browser tools",
+          "updated": "2026-10-15T23:37:58Z",
+          "link": "https://github.com/browser-use/browser-use/releases/tag/0.13.12",
+          "highlights": "Add OpenAI browser tools backed by Browser Use Actor. Import BrowserUse from browser_use.integrations.openai . Install browser-use[openai-tools] to enable OpenAI Python 3.31+. Use local browsers, Browser Use Cloud, or an existing connected BrowserSession. Support the 18 default browser tools and six optional actions. Preserve borrowed browser ownership and check Cloud browser cleanup. Preserve URL and timeout settings across OpenAI 2.x and 3.x model wrappers. OpenAI 3.x uses httpx2. For custom HTTP clients, use OpenAI's DefaultAsyncHttpxClient. This integration does not yet provide uploads, downloads, scoped reads, console/network diagnostics, or Bash. Validation: 35 integration/model tests passed, two skipped; OpenAI 2.26 compatibility: 15 passed, one skipped. All pull-request checks passed. Live Cloud navigation and element-reference click tests passed with provider-confirmed cleanup. Implementation: #6086 Cloud tests: https://github.com/browser-use/new-eval-platform/actions/runs/38824343560"
+        },
+        {
+          "version": "0.13.11",
+          "title": "0.13.11",
+          "updated": "2026-10-07T04:23:18Z",
+          "link": "https://github.com/browser-use/browser-use/releases/tag/0.13.11",
+          "highlights": "This release includes Browser Use toolsets for Claude, available at browser_use.integrations.toolsets_for_claude . The integration requires an Anthropic SDK release containing anthropic.tools.browser ; the current public Anthropic SDK does not yet include it. Documentation: https://docs.browser-use.com/open-source/customize/integrations/toolsets-for-claude PyPI publication runs through the protected release workflow and requires a separate reviewer approval. What's Changed chore: pin publish workflow toolchain by @MagMueller in #5669 filesystem: write_file can create tiny binary images (png/gif/jpg/webp) for upload flows by @MagMueller in #5280 fix(agent): redact sensitive data nested below list boundaries in saved history by @Mohil-Ahuja in #5662 fix(anthropic): treat data URL scheme and media type case-insensitively by @leilei3167 in #5636 fix(llm): stop dropping system messages in the Gemini request by @Mohil-Ahuja in #5664 fix(llm): remap retired Mistral pixtral-large alias by @nina-mir in #5673 fix(aws): support query strings in Bedrock image URLs by @VedanthB in #5676 fix(dom): match hidden code styles case-insensitively by @y4ho0 in #5640 fix(llm): resolve DeepSeek and Cere…"
+        },
+        {
+          "version": "0.13.10",
+          "title": "0.13.10",
+          "updated": "2026-09-04T03:28:53Z",
+          "link": "https://github.com/browser-use/browser-use/releases/tag/0.13.10",
+          "highlights": "Browser Use 0.13.10 Upgrade Browser Harness to 0.1.13. Exact-pin all declared runtime, optional, development, and build dependencies. Upgrade and migrate to MCP Python SDK 2.1.1. Add pydantic-settings 2.15.0 as an explicit runtime dependency. Pin Pydantic 2.13.5 and Hatchling 1.32.0. Upgrade pypdf to 6.16.2, resolving the three current pypdf Dependabot advisories. Report unknown MCP tool calls as application errors instead of successful results. Validation includes the full GitHub test matrix, model adapters, MCP stdio handshakes, cross-platform wheel installation, focused PDF tests, CodeQL, GitGuardian, and an installed-runtime vulnerability audit."
+        },
+        {
+          "version": "0.13.9",
+          "title": "0.13.9",
+          "updated": "2026-09-04T01:29:32Z",
+          "link": "https://github.com/browser-use/browser-use/releases/tag/0.13.9",
+          "highlights": "What's Changed fix(llm): make bu-2-0 the ChatBrowserUse default again, keep mini opt-in by @sauravpanda in #5488 ci: remove the dead cloud_evals image-build trigger by @sauravpanda in #5491 fix(filesystem): report missing target text in replace_file by @uczltw6 in #5498 fix(filesystem): escape plain text in generated PDFs by @primorLee in #5502 docs: highlight rerunnable Cloud scripts by @MagMueller in #5551 docs(cloud): update tools guide for CLI 3.0 by @MagMueller in #5553 fix(deps): bump dependency versions by @sauravpanda in #5382 fix: Update DeepSeek default model to deepseek-v4-flash by @DipsyHou in #5563 fix(llm): stop putting format/stream inside Ollama options by @official-burak in #5561 fix(deps): update vulnerable Click, MCP, and pypdf pins by @green3sf in #5526 fix(browser): clear cookies via Storage domain, not Network by @MrLeit in #5562 fix(filesystem): render markdown emphasis in PDF export by @leilei3167 in #5540 fix(llm): ignore empty reasoning model patterns by @ECD5A in #5545 fix(dom): expose image context for clickable elements by @UniversePeak in #5541 build: require Browser Harness 0.1.10 by @MagMueller in #5507 fix(registry): replace sensitive placeholders…"
+        }
+      ],
+      "raw_relative": "raw/browser-use.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:40.652216Z",
+          "finished_at": "2026-10-19T15:17:48.360270Z",
+          "http_status": 200,
+          "request_id": "98582cea-219f-4558-8dd6-ce5c67b1c2d3"
+        }
+      ],
+      "generated_at": "2026-10-19T15:17:35.238661Z"
+    },
+    {
+      "id": "crawl4ai",
+      "name": "Crawl4AI",
+      "feed": "https://github.com/unclecode/crawl4ai/releases.atom",
+      "ok": true,
+      "status": "ok",
+      "parse_error": "",
+      "final_url": "https://github.com/unclecode/crawl4ai/releases.atom",
+      "target_status_code": 200,
+      "engine": "http",
+      "request_id": "0b0f8533-00ce-49ab-a6a6-3f8207b3d616",
+      "dom_id": "846863",
+      "releases": [
+        {
+          "version": "v0.9.5",
+          "title": "Release v0.9.5",
+          "updated": "2026-10-14T10:25:39Z",
+          "link": "https://github.com/unclecode/crawl4ai/releases/tag/v0.9.5",
+          "highlights": "🎉 Crawl4AI v0.9.5 Released! 📦 Installation PyPI: pip install crawl4ai==0.9.5 Docker: docker pull unclecode/crawl4ai:0.9.5 docker pull unclecode/crawl4ai:latest Note: Docker images are being built and will be available shortly. Check the Docker Release workflow for build status. 📝 What's Changed See CHANGELOG.md for details."
+        },
+        {
+          "version": "docker-rebuild-v0.9.5",
+          "title": "docker-rebuild-v0.9.5",
+          "updated": "2026-10-14T10:23:58Z",
+          "link": "https://github.com/unclecode/crawl4ai/releases/tag/docker-rebuild-v0.9.5",
+          "highlights": "Merge main into develop: cloud launch wording"
+        },
+        {
+          "version": "v0.9.4",
+          "title": "Release v0.9.4",
+          "updated": "2026-09-23T12:14:55Z",
+          "link": "https://github.com/unclecode/crawl4ai/releases/tag/v0.9.4",
+          "highlights": "🎉 Crawl4AI v0.9.4 Released! 📦 Installation PyPI: pip install crawl4ai==0.9.4 Docker: docker pull unclecode/crawl4ai:0.9.4 docker pull unclecode/crawl4ai:latest Note: Docker images are being built and will be available shortly. Check the Docker Release workflow for build status. 📝 What's Changed See CHANGELOG.md for details."
+        },
+        {
+          "version": "docker-rebuild-v0.9.4",
+          "title": "docker-rebuild-v0.9.4: docs: release notes, changelog, README, and security credits for v0.9.4",
+          "updated": "2026-09-23T12:09:09Z",
+          "link": "https://github.com/unclecode/crawl4ai/releases/tag/docker-rebuild-v0.9.4",
+          "highlights": "Bump the version to 0.9.4 and add the v0.9.4 fixes to SECURITY.md."
+        },
+        {
+          "version": "v0.9.3",
+          "title": "Release v0.9.3",
+          "updated": "2026-08-31T11:34:14Z",
+          "link": "https://github.com/unclecode/crawl4ai/releases/tag/v0.9.3",
+          "highlights": "🎉 Crawl4AI v0.9.3 Released! 📦 Installation PyPI: pip install crawl4ai==0.9.3 Docker: docker pull unclecode/crawl4ai:0.9.3 docker pull unclecode/crawl4ai:latest Note: Docker images are being built and will be available shortly. Check the Docker Release workflow for build status. 📝 What's Changed See CHANGELOG.md for details."
+        }
+      ],
+      "raw_relative": "raw/crawl4ai.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:48.392266Z",
+          "finished_at": "2026-10-19T15:17:49.901976Z",
+          "http_status": 200,
+          "request_id": "0b0f8533-00ce-49ab-a6a6-3f8207b3d616"
+        }
+      ],
+      "generated_at": "2026-10-19T15:17:35.238661Z"
+    },
+    {
+      "id": "fastapi",
+      "name": "FastAPI",
+      "feed": "https://github.com/fastapi/fastapi/releases.atom",
+      "ok": true,
+      "status": "ok",
+      "parse_error": "",
+      "final_url": "https://github.com/fastapi/fastapi/releases.atom",
+      "target_status_code": 200,
+      "engine": "http",
+      "request_id": "4bf8bacf-dee3-41b0-b516-87d8f9462e35",
+      "dom_id": "846864",
+      "releases": [
+        {
+          "version": "0.148.0",
+          "title": "0.148.0",
+          "updated": "2026-10-19T12:25:19Z",
+          "link": "https://github.com/fastapi/fastapi/releases/tag/0.148.0",
+          "highlights": "Defaults for omitted Query , Header , Cookie , and Form parameters and model fields are no longer treated as user input. Defaults are not validated unless validate_default=True is enabled. If you rely on validators running for omitted values, enable default validation with Field(validate_default=True) for model fields or, for example, Query(validate_default=True) for individual parameters. Body(validate_default=True) is now honored too. For parameter models, applying a default no longer marks a field as explicitly set, so model_dump(exclude_unset=True) excludes it. Default factories run once, and validation errors no longer include injected defaults in input . Omitted boolean form fields still become False and count as explicitly set. Breaking Changes 🐛 Fix default handling for request parameters and models. PR #16527 by @tiangolo ."
+        },
+        {
+          "version": "0.147.0",
+          "title": "0.147.0",
+          "updated": "2026-10-19T09:48:41Z",
+          "link": "https://github.com/fastapi/fastapi/releases/tag/0.147.0",
+          "highlights": "Omitted bool and bool | None form fields are now interpreted as False , matching unchecked HTML checkboxes. This applies to individual Form parameters and form models, including required fields and fields with defaults of True or None . The inferred value is considered explicitly set, including in model_dump(exclude_unset=True) . JSON requests and direct Pydantic validation are unchanged. See Boolean Form Fields . Breaking Changes 🐛 Treat omitted boolean form fields as False. PR #16523 by @tiangolo . Internal ✅ Add tests for parameter defaults, nullability, and browser form behavior. PR #14829 by @YuriiMotov ."
+        },
+        {
+          "version": "0.146.0",
+          "title": "0.146.0",
+          "updated": "2026-10-18T15:18:08Z",
+          "link": "https://github.com/fastapi/fastapi/releases/tag/0.146.0",
+          "highlights": "The root_path parameter in FastAPI() is deprecated. Configure the server with fastapi run --root-path /api/v1 instead. Breaking Changes 🗑️ Deprecate the root_path parameter in FastAPI . PR #16520 by @tiangolo ."
+        },
+        {
+          "version": "0.145.0",
+          "title": "0.145.0",
+          "updated": "2026-10-18T14:40:20Z",
+          "link": "https://github.com/fastapi/fastapi/releases/tag/0.145.0",
+          "highlights": "Breaking Changes 🔥 Remove deprecated openapi_prefix and unused **extra from FastAPI . PR #16518 by @tiangolo . Docs 📝 Document URL paths in templates. PR #16517 by @tiangolo ."
+        },
+        {
+          "version": "0.144.0",
+          "title": "0.144.0",
+          "updated": "2026-10-18T12:42:34Z",
+          "link": "https://github.com/fastapi/fastapi/releases/tag/0.144.0",
+          "highlights": "Features ✨ Add WebSocket support to security dependencies. PR #10147 by @mnixry ."
+        }
+      ],
+      "raw_relative": "raw/fastapi.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:49.945435Z",
+          "finished_at": "2026-10-19T15:17:52.611513Z",
+          "http_status": 200,
+          "request_id": "4bf8bacf-dee3-41b0-b516-87d8f9462e35"
+        }
+      ],
+      "generated_at": "2026-10-19T15:17:35.238661Z"
+    },
+    {
+      "id": "vite",
+      "name": "Vite",
+      "feed": "https://github.com/vitejs/vite/releases.atom",
+      "ok": true,
+      "status": "ok",
+      "parse_error": "",
+      "final_url": "https://github.com/vitejs/vite/releases.atom",
+      "target_status_code": 200,
+      "engine": "http",
+      "request_id": "6d74c5cc-5a71-4e1c-86ca-44e0c1a30855",
+      "dom_id": "846865",
+      "releases": [
+        {
+          "version": "create-vite%409.3.0",
+          "title": "create-vite@9.3.0",
+          "updated": "2026-10-19T08:05:45Z",
+          "link": "https://github.com/vitejs/vite/releases/tag/create-vite%409.3.0",
+          "highlights": "Features create-vite: print version before scaffolding ( #23806 ) ( a3001c5 ) create-vite: use typescript v7 where possible ( #23794 ) ( 9df8bbc ) Bug Fixes create-vite: add router only options for tanstack router/start ( #23543 ) ( f155b62 ) deps: update all non-major dependencies ( #23482 ) ( 3c752c8 ) deps: update all non-major dependencies ( #23537 ) ( e8990c4 ) deps: update all non-major dependencies ( #23601 ) ( 9944fa6 ) deps: update all non-major dependencies ( #23648 ) ( 8a4c19c ) deps: update all non-major dependencies ( #23731 ) ( cf80aa5 ) deps: update all non-major dependencies ( #23826 ) ( 77d8373 ) deps: update rolldown-related dependencies ( #23483 ) ( 9aecbbf ) deps: update rolldown-related dependencies ( #23733 ) ( 43f0d05 ) Code Refactoring create-vite: use tinyexec instead of cross-spawn ( #23541 ) ( e5d9af2 ) deps: replace @vercel/detect-agent with std-env ( #23744 ) ( ce4293f )"
+        },
+        {
+          "version": "v8.3.4",
+          "title": "v8.3.4",
+          "updated": "2026-10-08T12:03:54Z",
+          "link": "https://github.com/vitejs/vite/releases/tag/v8.3.4",
+          "highlights": "Features bundled-dev: support import.meta.hot.acceptExports ( #23463 ) ( bc0f21c ) Bug Fixes avoid mutating hmr defaults (fix #23575 ) ( #23576 ) ( 574d5e3 ) build: correct preloads when chunkImportMap is enabled with non-root base ( #23698 ) ( 2a8c0f0 ) build: wait for in-flight stylesheets in preload helper (fix #23652 ) ( #23662 ) ( 036b745 ) bundled-dev: serve /@vite/client and stub @vite/env ( #23664 ) ( 5afc5a8 ) client: skip rewriting unchanged adopted styles ( #23697 ) ( fa71469 ) css: resolve imported preprocessors from their file path with lightningcss ( #23688 ) ( cf52011 ) deps: update all non-major dependencies ( #23648 ) ( 8a4c19c ) deps: update rolldown-related dependencies ( #23649 ) ( 794516d ) dev: a restart requested during a restart used to be dropped (fix #23392 ) ( #23484 ) ( 70d56ea ) don't treat modules ending with js-like query as js ( #23687 ) ( fcb6f12 ) html: avoid adding filesystem root to watcher ( #23689 ) ( 3a7f2ae ) html: skip caching CSS of chunks in a cycle (fix #23628 ) ( #23636 ) ( 15d82f7 ) optimizer: scan deep imports with custom extensions ( #23678 ) ( 8579189 ) remove input option unescaping for now ( #23694 ) ( facc2fb ) server: match stat…"
+        },
+        {
+          "version": "v8.3.3",
+          "title": "v8.3.3",
+          "updated": "2026-10-06T08:23:01Z",
+          "link": "https://github.com/vitejs/vite/releases/tag/v8.3.3",
+          "highlights": "Bug Fixes deps: update launch-editor to v2.14.2 ( #23654 ) ( 22fd1d5 ) html: filename passed to transformIndexHtml should not include queries ( #23653 ) ( 7dafd8e ) server: check fs.serve for ?vite-wasm-instance ( #23655 ) ( ba8b7ab ) server: store ids to safeModulePaths rather than URLs ( #23656 ) ( c3e06f9 )"
+        },
+        {
+          "version": "v8.2.4",
+          "title": "v8.2.4",
+          "updated": "2026-10-06T04:42:58Z",
+          "link": "https://github.com/vitejs/vite/releases/tag/v8.2.4",
+          "highlights": "Please refer to CHANGELOG.md for details."
+        },
+        {
+          "version": "v8.1.6",
+          "title": "v8.1.6",
+          "updated": "2026-10-06T04:48:45Z",
+          "link": "https://github.com/vitejs/vite/releases/tag/v8.1.6",
+          "highlights": "Please refer to CHANGELOG.md for details."
+        }
+      ],
+      "raw_relative": "raw/vite.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:52.619792Z",
+          "finished_at": "2026-10-19T15:17:55.922610Z",
+          "http_status": 200,
+          "request_id": "6d74c5cc-5a71-4e1c-86ca-44e0c1a30855"
+        }
+      ],
+      "generated_at": "2026-10-19T15:17:35.238661Z"
+    },
+    {
+      "id": "nextjs",
+      "name": "Next.js",
+      "feed": "https://github.com/vercel/next.js/releases.atom",
+      "ok": true,
+      "status": "ok",
+      "parse_error": "",
+      "final_url": "https://github.com/vercel/next.js/releases.atom",
+      "target_status_code": 200,
+      "engine": "http",
+      "request_id": "4e58e836-054b-4ac6-a41a-e859511fc60e",
+      "dom_id": "846866",
+      "releases": [
+        {
+          "version": "v16.5.0-canary.17",
+          "title": "v16.5.0-canary.17",
+          "updated": "2026-10-17T23:46:40Z",
+          "link": "https://github.com/vercel/next.js/releases/tag/v16.5.0-canary.17",
+          "highlights": "Misc Changes turbo-persistence: prefetch multi-page SST blocks with MADV_WILLNEED: #100283 Credits Huge thanks to @lukesandberg for helping!"
+        },
+        {
+          "version": "v16.5.0-canary.16",
+          "title": "v16.5.0-canary.16",
+          "updated": "2026-10-16T23:47:57Z",
+          "link": "https://github.com/vercel/next.js/releases/tag/v16.5.0-canary.16",
+          "highlights": "Core Changes Refactor fetchStrategy -> stage and completeness: #99706 Remove dead NextNodeServer.renderHTML: #100284 Pass Server Action request metadata into App rendering: #100274 Revert \"Keep requests through middleware in a single OpenTelemetry trace\": #100302 Respect release age when pinning the upgrade CLI: #100256 Misc Changes test: remove stale deploy gate on cold RSC navigation param caching test: #100285 Fix upgrade eval worktree dependency links: #100257 Credits Huge thanks to @lukesandberg , @acdlite , @kassens , @devjiwonchoi , and @sokra for helping!"
+        },
+        {
+          "version": "v16.5.0-canary.15",
+          "title": "v16.5.0-canary.15",
+          "updated": "2026-10-15T23:44:24Z",
+          "link": "https://github.com/vercel/next.js/releases/tag/v16.5.0-canary.15",
+          "highlights": "Core Changes Hoist app page request URL into render context: #99269 Hide overlay editor button labels on smaller screens: #100266 Prefer non-partial entries regardless of FetchStrategy: #99705 [Partial Prefetching] Don't report vary params in responses that include dynamic data: #99700 [Partial Prefetching] Small optimizations and fixes: #99695 [Cached Navs] Extract the shell from a fully cached response: #99619 Refactor the navigation fetch and decode layering: #99618 [Cached Navs] Don't extract static stage: #99617 Make error overlay editor actions easier to discover: #100206 Misc Changes Turbopack: don't inherit API route config from parent layouts: #100243 test: Add more segment config tests: #100242 Add more test coverage for non-Partial Prefetching behavior: #100133 chore: Remove package.json#workspaces: #100234 docs: Add Pages Router upgrade guides for versions 15 and 16: #100247 docs: note that 'use cache: private' results persist across requests in dev: #100252 test: unskip tests for Turbopack: #100185 Credits Huge thanks to @gnoff , @samselikoff , @mischnic , @acdlite , and @icyJoseph for helping!"
+        },
+        {
+          "version": "v16.5.0-canary.14",
+          "title": "v16.5.0-canary.14",
+          "updated": "2026-10-15T13:52:48Z",
+          "link": "https://github.com/vercel/next.js/releases/tag/v16.5.0-canary.14",
+          "highlights": "Core Changes Upgrade React from 07dde64d-20261013 to 99c106c4-20261014 : #100215 Example Changes docs: type error.js error prop as unknown: #100232 Misc Changes chore: fix turborepo cache for miri unit test job: #100241 Fix binary trace self-time on same-span re-entry: #100205 docs: add instant navigation testing to Playwright guide: #100003 Credits Huge thanks to @mischnic , @yousefdawood7 , and @icyJoseph for helping!"
+        },
+        {
+          "version": "v16.5.0-canary.13",
+          "title": "v16.5.0-canary.13",
+          "updated": "2026-10-15T10:00:06Z",
+          "link": "https://github.com/vercel/next.js/releases/tag/v16.5.0-canary.13",
+          "highlights": "Core Changes Fix extensionless Google font URLs in both bundlers: #100158 Emit the Turbopack shared-runtime bootstrap in the PPR resume so it gets the CSP nonce: #100102 Keep requests through middleware in a single OpenTelemetry trace: #100136 Write webpack dev manifests atomically: #100112 Misc Changes next-api: isolate dropped entrypoint collectibles in an inner operation: #100187 turbo-tasks-backend: optimize aggregated updates outside of the lock: #100165 docs: Add turborepo agents rules: #100214 Credits Huge thanks to @sokra , @andrewimm , and @bgw for helping!"
+        }
+      ],
+      "raw_relative": "raw/nextjs.json",
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:55.935793Z",
+          "finished_at": "2026-10-19T15:17:59.621713Z",
+          "http_status": 200,
+          "request_id": "4e58e836-054b-4ac6-a41a-e859511fc60e"
+        }
+      ],
+      "generated_at": "2026-10-19T15:17:35.238661Z"
+    }
+  ]
+}

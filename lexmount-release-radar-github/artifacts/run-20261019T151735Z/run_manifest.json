@@ -1,0 +1,139 @@
+{
+  "generated_at": "2026-10-19T15:17:35.238661Z",
+  "endpoint": "https://api.lexmount.cn/v1/dom/dump",
+  "security_note": "No API key or project id is stored.",
+  "calls": [
+    {
+      "repo_id": "playwright-python",
+      "endpoint": "https://api.lexmount.cn/v1/dom/dump",
+      "feed_url": "https://github.com/microsoft/playwright-python/releases.atom",
+      "http_status": 200,
+      "target_status_code": 200,
+      "lexmount_ok": true,
+      "request_id": "ebdd1110-b009-451a-9583-9591d4b52579",
+      "dom_id": "846861",
+      "engine": "http",
+      "raw_file": "raw/playwright-python.json",
+      "release_count": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:35.239657Z",
+          "finished_at": "2026-10-19T15:17:40.635112Z",
+          "http_status": 200,
+          "request_id": "ebdd1110-b009-451a-9583-9591d4b52579"
+        }
+      ]
+    },
+    {
+      "repo_id": "browser-use",
+      "endpoint": "https://api.lexmount.cn/v1/dom/dump",
+      "feed_url": "https://github.com/browser-use/browser-use/releases.atom",
+      "http_status": 200,
+      "target_status_code": 200,
+      "lexmount_ok": true,
+      "request_id": "98582cea-219f-4558-8dd6-ce5c67b1c2d3",
+      "dom_id": "846862",
+      "engine": "http",
+      "raw_file": "raw/browser-use.json",
+      "release_count": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:40.652216Z",
+          "finished_at": "2026-10-19T15:17:48.360270Z",
+          "http_status": 200,
+          "request_id": "98582cea-219f-4558-8dd6-ce5c67b1c2d3"
+        }
+      ]
+    },
+    {
+      "repo_id": "crawl4ai",
+      "endpoint": "https://api.lexmount.cn/v1/dom/dump",
+      "feed_url": "https://github.com/unclecode/crawl4ai/releases.atom",
+      "http_status": 200,
+      "target_status_code": 200,
+      "lexmount_ok": true,
+      "request_id": "0b0f8533-00ce-49ab-a6a6-3f8207b3d616",
+      "dom_id": "846863",
+      "engine": "http",
+      "raw_file": "raw/crawl4ai.json",
+      "release_count": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:48.392266Z",
+          "finished_at": "2026-10-19T15:17:49.901976Z",
+          "http_status": 200,
+          "request_id": "0b0f8533-00ce-49ab-a6a6-3f8207b3d616"
+        }
+      ]
+    },
+    {
+      "repo_id": "fastapi",
+      "endpoint": "https://api.lexmount.cn/v1/dom/dump",
+      "feed_url": "https://github.com/fastapi/fastapi/releases.atom",
+      "http_status": 200,
+      "target_status_code": 200,
+      "lexmount_ok": true,
+      "request_id": "4bf8bacf-dee3-41b0-b516-87d8f9462e35",
+      "dom_id": "846864",
+      "engine": "http",
+      "raw_file": "raw/fastapi.json",
+      "release_count": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:49.945435Z",
+          "finished_at": "2026-10-19T15:17:52.611513Z",
+          "http_status": 200,
+          "request_id": "4bf8bacf-dee3-41b0-b516-87d8f9462e35"
+        }
+      ]
+    },
+    {
+      "repo_id": "vite",
+      "endpoint": "https://api.lexmount.cn/v1/dom/dump",
+      "feed_url": "https://github.com/vitejs/vite/releases.atom",
+      "http_status": 200,
+      "target_status_code": 200,
+      "lexmount_ok": true,
+      "request_id": "6d74c5cc-5a71-4e1c-86ca-44e0c1a30855",
+      "dom_id": "846865",
+      "engine": "http",
+      "raw_file": "raw/vite.json",
+      "release_count": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:52.619792Z",
+          "finished_at": "2026-10-19T15:17:55.922610Z",
+          "http_status": 200,
+          "request_id": "6d74c5cc-5a71-4e1c-86ca-44e0c1a30855"
+        }
+      ]
+    },
+    {
+      "repo_id": "nextjs",
+      "endpoint": "https://api.lexmount.cn/v1/dom/dump",
+      "feed_url": "https://github.com/vercel/next.js/releases.atom",
+      "http_status": 200,
+      "target_status_code": 200,
+      "lexmount_ok": true,
+      "request_id": "4e58e836-054b-4ac6-a41a-e859511fc60e",
+      "dom_id": "846866",
+      "engine": "http",
+      "raw_file": "raw/nextjs.json",
+      "release_count": 5,
+      "attempts": [
+        {
+          "attempt": 1,
+          "started_at": "2026-10-19T15:17:55.935793Z",
+          "finished_at": "2026-10-19T15:17:59.621713Z",
+          "http_status": 200,
+          "request_id": "4e58e836-054b-4ac6-a41a-e859511fc60e"
+        }
+      ]
+    }
+  ]
+}

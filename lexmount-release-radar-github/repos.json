@@ -1,0 +1,11 @@
+﻿{
+  "repos": [
+    {"id":"playwright-python","name":"Playwright Python","feed":"https://github.com/microsoft/playwright-python/releases.atom"},
+    {"id":"browser-use","name":"Browser Use","feed":"https://github.com/browser-use/browser-use/releases.atom"},
+    {"id":"crawl4ai","name":"Crawl4AI","feed":"https://github.com/unclecode/crawl4ai/releases.atom"},
+    {"id":"fastapi","name":"FastAPI","feed":"https://github.com/fastapi/fastapi/releases.atom"},
+    {"id":"vite","name":"Vite","feed":"https://github.com/vitejs/vite/releases.atom"},
+    {"id":"nextjs","name":"Next.js","feed":"https://github.com/vercel/next.js/releases.atom"}
+  ]
+}
+
